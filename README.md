@@ -1,68 +1,168 @@
-# CodeIgniter 4 Application Starter
+# TaskApp
 
-## What is CodeIgniter?
+![TaskApp Banner](https://via.placeholder.com/1200x300.png?text=TaskApp+-+Organiza+tu+día+como+un+profesional!)
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+TaskApp es una aplicación web desarrollada con *CodeIgniter* para gestionar tareas, integrar consultas a una API de ChatGPT y realizar consultas de DNI. Diseñada con una interfaz moderna y amigable, TaskApp es ideal para gestionar proyectos y tareas diarias de manera eficiente.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+---
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 🚀 Características
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- *Gestión de Usuarios:*
+  - Registro e inicio de sesión.
+  - Roles de usuario: Administrador y Usuario.
 
-## Installation & updates
+- *Gestión de Tareas:*
+  - Crear, editar y eliminar tareas.
+  - Visualización de tareas pendientes y completadas.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- *Integración con ChatGPT:*
+  - Responde preguntas en tiempo real mediante OpenAI.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+- *Consulta de DNI:*
+  - Realiza consultas rápidas a una API externa para obtener información personal básica.
 
-## Setup
+- *Panel de Administración:*
+  - Gestión completa de usuarios.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+---
 
-## Important Change with index.php
+## 📸 Capturas de Pantalla
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+### Página de Inicio de Sesión
+![Login](https://via.placeholder.com/1200x600.png?text=Pantalla+de+Inicio+de+Sesión)
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### Panel de Tareas
+![Dashboard](https://via.placeholder.com/1200x600.png?text=Panel+de+Tareas)
 
-**Please** read the user guide for a better explanation of how CI4 works!
+### Chat con GPT
+![ChatGPT](https://via.placeholder.com/1200x600.png?text=Chat+con+GPT)
 
-## Repository Management
+### Consulta de DNI
+![Consulta DNI](https://via.placeholder.com/1200x600.png?text=Consulta+DNI)
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+### Panel de Administración
+![Admin Panel](https://via.placeholder.com/1200x600.png?text=Panel+de+Administración)
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+---
 
-## Server Requirements
+## 🛠 Tecnologías Utilizadas
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+- *Framework:* CodeIgniter 4
+- *Lenguaje:* PHP 8
+- *Base de Datos:* MySQL
+- *Frontend:* HTML5, CSS3 (Bootstrap 5)
+- *Integración de APIs:*
+  - OpenAI GPT-3.5 Turbo
+  - API de DNI Perú
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+---
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+## 📖 Manual de Usuario
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+### Instalación
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+1. *Clonar el Repositorio:*
+   bash
+   git clone https://github.com/tu_usuario/taskapp.git
+   cd taskapp
+   
+
+2. *Configurar el Entorno:*
+   - Renombra el archivo .env.example a .env.
+   - Configura los datos de tu base de datos:
+     
+     database.default.hostname = localhost
+     database.default.database = taskapp
+     database.default.username = tu_usuario
+     database.default.password = tu_contraseña
+     database.default.DBDriver = MySQLi
+     
+
+3. *Instalar Dependencias:*
+   bash
+   composer install
+   
+
+4. *Migrar la Base de Datos:*
+   bash
+   php spark migrate
+   php spark db:seed UserSeeder
+   
+
+5. *Configurar el Servidor:*
+   bash
+   php spark serve
+   
+
+   Accede a la aplicación en [http://localhost:8080](http://localhost:8080).
+
+---
+
+### Uso Básico
+
+#### *Registro de Usuario*
+- Accede a la página de registro.
+- Ingresa un nombre de usuario, correo y contraseña.
+
+#### *Inicio de Sesión*
+- Ingresa tus credenciales para acceder al panel de tareas.
+
+#### *Gestión de Tareas*
+1. Crear tareas desde el panel principal.
+2. Editar o eliminar tareas desde el listado.
+
+#### *Consulta de DNI*
+- Ingresa un número de DNI válido para obtener información básica.
+
+#### *Chat con GPT*
+- Realiza consultas en tiempo real mediante la integración con OpenAI.
+
+#### *Panel de Administración*
+- Los administradores pueden gestionar usuarios, editar roles y eliminar cuentas.
+
+---
+
+## 🌟 Contribución
+
+¡Toda ayuda es bienvenida! Sigue estos pasos para contribuir:
+
+1. Haz un fork del repositorio.
+2. Crea una rama con tu nueva funcionalidad.
+   bash
+   git checkout -b nueva-funcionalidad
+   
+3. Realiza los cambios necesarios y haz commit.
+   bash
+   git commit -m "Añadida nueva funcionalidad"
+   
+4. Haz push a tu rama.
+   bash
+   git push origin nueva-funcionalidad
+   
+5. Abre un pull request en GitHub.
+
+---
+
+## 👩‍💻👨‍💻 Desarrolladores
+
+- *Cristian Daniel Ccopa Acero*
+  - Correo: [cccopa@est.unap.edu.pe](mailto:cccopa@est.unap.edu.pe)
+
+- *Edith Enma Ortega Condori*
+  - Correo: [eortega@est.unap.edu.pe](mailto:eortega@est.unap.edu.pe)
+
+---
+
+## 📜 Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más información.
+
+---
+
+## 🙌 Agradecimientos
+
+Agradecemos a:
+- *Universidad Nacional del Altiplano* por el soporte académico.
+- *OpenAI* por proporcionar la tecnología detrás de GPT.
+- *API de DNI Perú* por facilitar la integración de datos locales.
